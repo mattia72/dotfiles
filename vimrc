@@ -1,4 +1,4 @@
-" Maintainer:  Mata              Last change: 2013.10.24
+" Maintainer:  Mattia72              Last change: 2013.10.24
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -12,29 +12,24 @@ if has('vim_starting')
   set runtimepath+=~/.vim/neobundle/neobundle.vim/
 endif
 
+" -------------------------------------------------------------------------------
+"  NeoBundle
+"-------------------------------------------------------------------------------
 call neobundle#rc(expand('~/.vim/neobundle/'))
 " Let set my bundles not handled by  neobundle
 call neobundle#local(expand('~/.vim/bundle/'))
-
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
-" My Bundles here:
-"
-" Note: You don't set neobundle setting in .gvimrc!
-" Original repos on github
 NeoBundle 'bling/vim-airline'
-" vim-scripts repos
 NeoBundle 'L9'
 "NeoBundle 'FSwitch'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'bufexplorer.zip'
-"NeoBundle 'Gundo' "needs python :( histwin needs Vim only.
+"NeoBundle 'Gundo' "needs python :( use histwin instead, it needs Vim only.
 NeoBundle 'matchit.zip'
 "NeoBundleLocal outlookvim
 "NeoBundleLocal pentadactyl
@@ -48,7 +43,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'abolish.vim'
 "NeoBundle 'bitbucket:ns9tks/vim-autocomplpop'   " Needs TortoiseHg :(
 "NeoBundle 'othree/vim-autocomplpop'
-NeoBundle 'Lokaltog/vim-easymotion'  " This plugin is locked at revision 09c0cea8
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'FuzzyFinder'
 NeoBundle 'PProvost/vim-ps1'
 NeoBundle 'vim-signature'
@@ -57,33 +52,9 @@ NeoBundle 'xml.vim'
 NeoBundle 'YankRing.vim'
 
 filetype plugin indent on     " Required!
-"
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 " Installation check.
 NeoBundleCheck
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-noremap Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -132,17 +103,6 @@ endfunction
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Use Pathogen to load bundles
-  "  filetype off
-  "  " Use Pathogen to load bundles before 'filetype plugin indent on'
-  "  let g:pathogen_disabled=["vim-l9Lib","vim-fuzzyfinder"]
-  "  call pathogen#infect()
-  "  " Also load indent files, to automatically do language-dependent indenting.
-  "  filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
     autocmd!
@@ -162,7 +122,6 @@ if has("autocmd")
 
     " When vimrc is edited, reload it
     autocmd BufWritePost .vimrc source $MYVIMRC
-    autocmd BufWinEnter .vimrc set foldmethod=manual
 
     " Omni Complete
     autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -199,8 +158,9 @@ if !exists(":DiffOrig")
    \ | wincmd p | diffthis
 endif
 
-" Own settings...
+"-------------------------------------------------------------------------------
 " Colors
+"-------------------------------------------------------------------------------
 "colors koehler
 "colors desert
 "colors ir_black
@@ -220,14 +180,18 @@ colors my_molokai
 "endif
 "echo noremap(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 "endfunc
+
+"-------------------------------------------------------------------------------
 " Settings
-" For all text files set 'textwidth' to 78 characters.
+"-------------------------------------------------------------------------------
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+let &guioptions = substitute(&guioptions, "t", "", "g") "For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 set directory=d:\temp,c:\temp,c:\tmp  "directory for swap files
-set textwidth=78
-set history=50  "keep 50 lines of command line history
-set ruler		"show the cursor position all the time
+set textwidth=78 " For all text files set 'textwidth' to 78 characters.
+set history=50   "keep 50 lines of command line history
+set ruler		 "show the cursor position all the time
 set cursorcolumn cursorline "Highlight the screen column of the cursor
-set showcmd		"display incomplete commands
+set showcmd		 "display incomplete commands
 set switchbuf=useopen,usetab
 set viewdir=$HOME\.vim\view
 set isfname+=32,38 " add space and '&' to filename chars
@@ -267,17 +231,22 @@ set scrolloff=5
 " set grep path, but... i cann't set any options e.g. -nH
 " so i use the default findstr
 set grepprg=d:\cygwin\bin\grep.exe
-" set cursor color and blink
-call SetMyGuiCursor()
-" path to use gf - jump to file.
-set path+=.
+call SetMyGuiCursor() " set cursor color and blink
+set path+=.  " path to use gf - jump to file.
 set suffixesadd=.pm,.pl
 set wildmenu
 set wildmode=full
 
-"Mappings ...
+"-------------------------------------------------------------------------------
+" Mappings ...
+"-------------------------------------------------------------------------------
 "show highlighting groups
 "map <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" Don't use Ex mode, use Q for formatting
+noremap Q gq
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 
 " With a noremap leader it's possible to do extra key combinations
 let mapleader = ","
@@ -367,21 +336,12 @@ vnoremap <C-Down> ]egv
 " Visually select the text that was last
 " edited/pasted
 nnoremap gV `[v`]
-" open/close fold under cursor with shift dblclick
-"nnoremap <silent> <S-2-LeftMouse>
-"\ :if foldclosed('.') == -1 <bar>
-"\ exe 'normal zc' <bar>
-"\ else <bar>
-"\ exe 'normal zo' <bar>
-" "\ endif<cr>
 
-"-------------------------------------------------------------------------------
 " autocomplete parenthesis, (brackets) and braces
-"-------------------------------------------------------------------------------
 inoremap  (  ()<Left>
 inoremap  [  []<Left>
 inoremap  {  {}<Left>
-"
+" surround selected text
 vnoremap  (  s()<Esc>P<Right>%
 vnoremap  [  s[]<Esc>P<Right>%
 vnoremap  {  s{}<Esc>P<Right>%
@@ -389,15 +349,13 @@ vnoremap  {  s{}<Esc>P<Right>%
 "-------------------------------------------------------------------------------
 " Plugins
 "-------------------------------------------------------------------------------
-"avoid to load cc plugin
-"let loaded_ccase = 1
 
 "snipMate
 let g:snippets_dir="~/.vim/snippets/"
 
 " Helptags should be rebuild if doc changed
 nnoremap <leader>ht :Helptags<CR>
-" help
+" help word under cursor
 nnoremap <leader>hh K
 " Matchit
 source ~/.vim/neobundle/matchit.zip/plugin/matchit.vim
@@ -429,17 +387,15 @@ let g:fuf_mrucmd_maxItem = 500
 let g:yankring_history_file = 'yankring_history_file'
 let g:yankring_history_dir = '~/.vim/data'
 let g:outlook_use_tabs = 1
-
+"XML
 let g:xml_syntax_folding = 1
 "For Airline
 set encoding=utf8
 set guifont=Ubuntu\ Mono\ for\ Powerline:h12:cEASTEUROPE
 "set guifont=Consolas\ for\ Powerline\ FixedD:h11:cEASTEUROPE
-
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
 " old vim-powerline symbols
 let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
@@ -453,5 +409,9 @@ let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
+
+" EasyMotion
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 
 " vim:tw=78:ts=4:ft=vim:norl:
