@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-vimrc
+.vimrc
