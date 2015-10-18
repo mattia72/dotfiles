@@ -1,0 +1,46 @@
+"2.3.1 (created: 2010/04/07 18:56:53)
+
+set gui+=tabs
+set runtimepath=d:/home/vimperator
+source! "d:/home/_vimperatorrc.local"
+
+"Csak akkor megy, ha gvim benne van a Path-ban.
+"set editor='d:/home/utils/editors/Vim/vim74/gvim.exe -f --remote-silent +<line> +"sil! call cursor(0, <column>)" <file>'
+
+autocmd LocationChange .* js modes.passAllKeys = false
+
+" gmail
+autocmd LocationChange mail\\.google\\.com js modes.passAllKeys = true
+autocmd LocationChange !mail\\.google\\.com :set editor="gvim.exe -f --remote-silent"
+autocmd LocationChange mail\\.google\\.com :set editor="gvim.exe -f --remote-silent -c ft=mail enc=utf8"
+
+" google docs
+autocmd LocationChange docs\\.google\\.com js modes.passAllKeys = true
+
+" feedly
+autocmd LocationChange feedly\\.com js modes.passAllKeys = true
+"autocmd PageLoad feedly\\.com js modes.passAllKeys = true
+
+" evosoft evotime
+autocmd LocationChange evotime\\.evosoft\\.com js modes.passAllKeys = true
+
+" gépírás oktató
+autocmd LocationChange manonet\\.org js modes.passAllKeys = true
+
+" clipperz
+autocmd LocationChange clipperz\\.is js modes.passAllKeys = true
+
+"set mapleader=','
+"map <leader>e :!d:/PROGRA~1/Vim/vim74/gvim.exe -f --remote-silent ~/_vimperatorrc <cr>
+map ,e :!d:/home/utils/editors/Vim/vim74/gvim.exe -f --remote-silent ~/_vimperatorrc <cr>
+"nmap -builtin / /\r
+" highlight search terms
+set hlsearch
+" incremental search
+set incsearch
+" Styling
+"highlight Hint font-family: sans-serif; font-size: 13px; font-weight: normal; color: black; background-color: #fffcc8 !important; border: 1px solid black; padding: 2px; line-height: 13px; text-transform: none;
+"highlight HintActive background-color: rgba(0,0,0,0) !important;
+"highlight HintElem background-color: rgba(0,0,0,0) !important;
+
+" vim: set ft=vimperator:
