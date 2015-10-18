@@ -1,0 +1,63 @@
+# Turn off that annoying start up message
+startup_message off
+
+# Turn the even more annoying whole-screen-flash-on-tab-complete "feature"
+vbell off
+
+# screen keystroke is ctrl-w
+escape ^Ww
+
+#backtick 1 60 60 /appl01/multi/op/tools/screen/env_type.ksh
+
+#backtick 2 10 10 cat /appl01/multi/op/tools/screen/moon_1.info
+#backtick 3 10 10 cat /appl01/multi/op/tools/screen/moon_2.info
+#backtick 4 10 10 cat /appl01/multi/op/tools/screen/moon_3.info
+#backtick 5 10 10 cat /appl01/multi/op/tools/screen/moon_4.info
+#backtick 6 10 10 cat /appl01/multi/op/tools/screen/moon_5.info
+#backtick 7 10 10 cat /appl01/multi/op/tools/screen/moon_6.info
+
+#backtick 8 60 60 /appl01/multi/op/tools/screen/info_to_screen.ksh mem
+#backtick 9 60 60 /appl01/multi/op/tools/screen/info_to_screen.ksh load
+
+
+# Window list at the bottom. hostname, centered tabs and redmarked active windows:
+hardstatus alwayslastline
+
+# PRODUCTION:
+#hardstatus string '%{= kR}%{d}[ %{R}PROD:%H %{d}]%{= kw}[%=  %{= kw}%?%-Lw%?%{= kG}%n*%f %t%?%?%{= kw}%?%+Lw%?%?%= ]%{w}[%{r} %Y-%m-%d %c %{w}]%{w}'
+
+# LIKE:
+#hardstatus string '%{= kR}%{d}[ %{M}LIKE:%H %{d}]%{= kw}[%=  %{= kw}%?%-Lw%?%{= kG}%n*%f %t%?%?%{= kw}%?%+Lw%?%?%= ]%{w}[%{r} %Y-%m-%d %c %{w}]%{w}'
+
+hardstatus string '%{= kR}[ %H ] %{d}%{= kw}[%=  %{= kw}%?%-Lw%?%{= kG}%n*%f %t%?%?%{= kw}%?%+Lw%?%?%= ]%{w}[%{r} %Y-%m-%d %c %{w}]%{w}'
+
+term xterm
+termcapinfo xterm* ti@:te@
+#autodetach on
+#altscreen on
+#shelltitle "$ |bash"
+defscrollback 50000
+#defutf8 on
+#nonblock on
+
+#shell -${SHELL}
+shell -bash
+#caption always "%n(%t) : %C"
+#bind ' ' windowlist -b
+#caption splitonly "%3n %t%? @%u%?%? [%h]%?%=%c"
+#caption always "%{= kc}%H (system load: %l) | %2`:%3`:%4`:%5`:%6`:%7` | %-21=%{= .m}%D %d.%m.%Y %0c"
+
+#Use 256 colors
+#term screen-256color
+
+#Map some handy keys
+# for ctrl right and left arrows
+bindkey ^[[D prev
+bindkey ^[[C next
+
+#caption always "%{= kd}[ MOON = %{r}%?%2`%:%{g}0%?/%{r}%?%3`%:%{g}0%?:%{r}%?%4`%:%{g}0%?:%{r}%?%5`%:%{g}0%?/%{r}%?%6`%:%{g}0%?:%{r}%?%7`%:%{g}0%?%{d} ] [ RAM = %{y}%8`%{d} ] [ LOAD = %{y}%9`%{d} ]"
+
+
+#caption splitonly ""
+
+
