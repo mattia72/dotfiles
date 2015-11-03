@@ -1,0 +1,7 @@
+[user]
+	name = mattia72
+	email = mattia72@gmail.com
+[core]
+	editor = vim
+[merge]
+	tool = gvim

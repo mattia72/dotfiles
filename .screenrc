@@ -1,11 +1,11 @@
-# Turn off that annoying start up message
-startup_message off
+# Turn on that annoying start up message
+startup_message on
 
-# Turn the even more annoying whole-screen-flash-on-tab-complete "feature"
-vbell off
+# Turn off the annoying audio bell and turn on the less annoying whole-screen-flash-on-tab-complete feature
+vbell on
 
-# screen keystroke is ctrl-w
-escape ^Ww
+# screen keystroke is ctrl-a
+escape ^Aa
 
 #backtick 1 60 60 /appl01/multi/op/tools/screen/env_type.ksh
 
@@ -48,7 +48,7 @@ shell -bash
 #caption always "%{= kc}%H (system load: %l) | %2`:%3`:%4`:%5`:%6`:%7` | %-21=%{= .m}%D %d.%m.%Y %0c"
 
 #Use 256 colors
-#term screen-256color
+term screen-256color
 
 #Map some handy keys
 # for ctrl right and left arrows
@@ -56,7 +56,6 @@ bindkey ^[[D prev
 bindkey ^[[C next
 
 #caption always "%{= kd}[ MOON = %{r}%?%2`%:%{g}0%?/%{r}%?%3`%:%{g}0%?:%{r}%?%4`%:%{g}0%?:%{r}%?%5`%:%{g}0%?/%{r}%?%6`%:%{g}0%?:%{r}%?%7`%:%{g}0%?%{d} ] [ RAM = %{y}%8`%{d} ] [ LOAD = %{y}%9`%{d} ]"
-
 
 #caption splitonly ""
 
