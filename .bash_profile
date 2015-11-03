@@ -6,7 +6,6 @@ else
 fi
 
 export GITAWAREPROMPT=~/bin/git-prompt
-#source "${GITAWAREPROMPT}/main.sh"
 source "${GITAWAREPROMPT}/prompt.sh"
 
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
