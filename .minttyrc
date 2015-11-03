@@ -1,0 +1,5 @@
+BoldAsFont=no
+FontHeight=12
+Font=Ubuntu Mono for Powerline
+Term=xterm-256color
+CursorType=line
