@@ -6,16 +6,6 @@ then
   . /etc/bashrc
 fi
 
-#txtblk="$(tput setaf 0 2>/dev/null || echo '\e[0;30m')"  # Black
-#txtred="$(tput setaf 1 2>/dev/null || echo '\e[0;31m')"  # Red
-#txtgrn="$(tput setaf 2 2>/dev/null || echo '\e[0;32m')"  # Green
-#txtylw="$(tput setaf 3 2>/dev/null || echo '\e[0;33m')"  # Yellow
-#txtblu="$(tput setaf 4 2>/dev/null || echo '\e[0;34m')"  # Blue
-#txtpur="$(tput setaf 5 2>/dev/null || echo '\e[0;35m')"  # Purple
-#txtcyn="$(tput setaf 6 2>/dev/null || echo '\e[0;36m')"  # Cyan
-#txtwht="$(tput setaf 7 2>/dev/null || echo '\e[0;37m')"  # White
-#txtrst="$(tput sgr 0 2>/dev/null || echo '\e[0m')"  # Text Reset
-
 txtblk=$(echo -e '\e[30m')  # Black
 txtred=$(echo -e '\e[31m')  # Red
 txtgrn=$(echo -e '\e[32m')  # Green
@@ -26,7 +16,8 @@ txtcyn=$(echo -e '\e[36m')  # Cyan
 txtwht=$(echo -e '\e[37m')  # White
 txtrst=$(echo -e '\e[0m')   # Reset 
 
-export PS1="\[$txtgrn\]\u@\h \[$txtylw\]\w \[$txtpur\]$MSYSTEM \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\n\$ "
+MINTTY_TITLE="\e]0;\w\a"
+export PS1="$MINTTY_TITLE\[$txtgrn\]\u@\h \[$txtylw\]\w \[$txtpur\]$MSYSTEM \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\n\$ "
 
 #User specific aliases and functions
 #
