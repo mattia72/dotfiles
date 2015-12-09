@@ -1,8 +1,10 @@
 .bash_history
 .cache
 .lesshst
+.ssh
 .vim 
 .viminfo
+.vimtags
 _viminfo 
 _vimperatorrc 
 _vimrc 
