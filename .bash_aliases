@@ -13,3 +13,10 @@ alias seed='aria2c --bt-require-crypto=true --check-integrity=false --bt-seed-un
 
 alias setvi="set -o vi"
 alias setnorm="set -o emacs"
+
+alias pacman-list="pacman -Qqe"
+alias pacman-upgrade="pacman -Syu"
+alias pacman-search="pacman -Ss"
+alias pacman-install="pacman -S"
+alias pacman-remove="pacman -R"
+
