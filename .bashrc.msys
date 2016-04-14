@@ -1,4 +1,4 @@
-# .bashrc for mingw
+# .bashrc for msys
 
 # Source global definitions
 if [ -f /etc/bashrc ]
@@ -17,7 +17,7 @@ txtwht=$(echo -e '\e[37m')  # White
 txtrst=$(echo -e '\e[0m')   # Reset 
 
 MINTTY_TITLE="\e]0;\w\a"
-export PS1="$MINTTY_TITLE\[$txtgrn\]\u@\h \[$txtylw\]\w \[$txtpur\]$MSYSTEM \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\n\$ "
+export PS1="$MINTTY_TITLE\[$txtgrn\]\u@\h \[$txtylw\]\w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\n\[$txtpur\]$MSYSTEM\[$txtrst\] \$ "
 
 #User specific aliases and functions
 #
