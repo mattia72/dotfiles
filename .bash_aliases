@@ -12,8 +12,10 @@ alias leech='aria2c --max-concurrent-downloads=10 --bt-require-crypto=true --low
 alias seed='aria2c --bt-require-crypto=true --check-integrity=false --bt-seed-unverified=true --disable-ipv6=true --seed-time=2880 --seed-ratio=1.0 --dir=. *.torrent'
 alias seedl='aria2c --bt-require-crypto=true --check-integrity=false --bt-seed-unverified=true --disable-ipv6=true --seed-time=2880 --seed-ratio=1.0 --max-overall-upload-limit=10 --dir=. *.torrent '
 
-#start vim without plugins
+#start my own vim
+alias vim="/c/home/utils/editors/Vim/vim74/vim"
 alias vi="vim -u NONE"
+
 
 alias setvi="set -o vi"
 alias setnorm="set -o emacs"
