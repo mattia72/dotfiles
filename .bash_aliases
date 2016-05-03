@@ -14,6 +14,7 @@ alias seedl='aria2c --bt-require-crypto=true --check-integrity=false --bt-seed-u
 
 #start my own vim
 alias vim="/c/home/utils/editors/Vim/vim74/vim"
+alias gvim="/c/home/utils/editors/Vim/vim74/gvim"
 alias vi="vim -u NONE"
 
 
