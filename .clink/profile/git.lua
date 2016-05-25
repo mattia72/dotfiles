@@ -74,8 +74,7 @@ function git_prompt_filter()
 
   -- Colors for git status
   local colors = {
-    branch = "\x1b[1;36;40m" ,
-    clean = "\x1b[1;37;40m",
+    branch = "\x1b[1;36;40m",
     dirty = "\x1b[31;1m",
   }
 
@@ -86,9 +85,6 @@ function git_prompt_filter()
 
     if not get_git_status() then
       git_info = git_info..colors.dirty.."*"
-      --color = colors.clean
-    --else
-      --color = colors.dirty
     end
 
 
