@@ -4,28 +4,49 @@ case $- in
 *) return;;
 esac
 
+load_bashrc_if_exists()
+{
+  local bashrc_path="$1"
+  if [ -f "$bashrc_path" ]; then
+    . "$bashrc_path"
+  fi
+}
+
 sysname=`uname -s | sed "s/\([a-zA-Z]\+\).*/\1/"`
-if [ "$sysname" = "CYGWIN" ]; then
-  if [ -f ~/.bashrc.cygwin ]; then
-    . ~/.bashrc.cygwin
-  fi
-elif [ "$sysname" = "MSYS" ]; then
-  if [ -f ~/.bashrc.msys ]; then
-    . ~/.bashrc.msys
-  fi
-elif [[ $sysname == MINGW* ]]; then
-  if [ -f ~/.bashrc.mingw ]; then
-    . ~/.bashrc.mingw
-  fi
-elif [ "$sysname" = "AIX" ]; then
-  if [ -f ~/.bashrc.aix ]; then
-    . ~/.bashrc.aix
-  fi
-elif [ "$sysname" = "UBUNTU" ]; then
-  if [ -f ~/.bashrc.ubuntu ]; then
-    . ~/.bashrc.ubuntu
-  fi
-fi
+case $sysname in
+  CYGWIN) load_bashrc_if_exists ~/.bashrc.cygwin;;
+  MSYS) load_bashrc_if_exists ~/.bashrc.msys;;
+  MINGW*) load_bashrc_if_exists ~/.bashrc.mingw;;
+  AIX) load_bashrc_if_exists ~/.bashrc.aix;;
+  UBUNTU) load_bashrc_if_exists ~/.bashrc.ubuntu;;
+esac
+
+case $sysname in
+  CYGWIN|MSYS|MINGW*) 
+    export PATH="$PATH:/c/ProgramData/chocolatey/bin";;
+esac
+
+#if [ "$sysname" = "CYGWIN" ]; then
+  #if [ -f ~/.bashrc.cygwin ]; then
+    #. ~/.bashrc.cygwin
+  #fi
+#elif [ "$sysname" = "MSYS" ]; then
+  #if [ -f ~/.bashrc.msys ]; then
+    #. ~/.bashrc.msys
+  #fi
+#elif [[ $sysname == MINGW* ]]; then
+  #if [ -f ~/.bashrc.mingw ]; then
+    #. ~/.bashrc.mingw
+  #fi
+#elif [ "$sysname" = "AIX" ]; then
+  #if [ -f ~/.bashrc.aix ]; then
+    #. ~/.bashrc.aix
+  #fi
+#elif [ "$sysname" = "UBUNTU" ]; then
+  #if [ -f ~/.bashrc.ubuntu ]; then
+    #. ~/.bashrc.ubuntu
+  #fi
+#fi
 
 #
 # common settings
