@@ -23,7 +23,7 @@ esac
 
 case $sysname in
   CYGWIN|MSYS|MINGW*) 
-    export PATH="$PATH:/c/ProgramData/chocolatey/bin";;
+    export PATH="$PATH:~/bin:/c/ProgramData/chocolatey/bin";;
 esac
 
 #if [ "$sysname" = "CYGWIN" ]; then
