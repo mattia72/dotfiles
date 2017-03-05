@@ -1,0 +1,4 @@
+" New key should be allowed in vs settings too!
+nmap <C-O> :vsc View.NavigateBackward<CR>
+nmap <C-I> :vsc View.NavigateForward<CR>
+nmap <C-J> :vsc Edit.GoToDefinition<CR>
