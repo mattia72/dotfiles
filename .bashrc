@@ -23,32 +23,13 @@ esac
 
 case $sysname in
   CYGWIN|MSYS|MINGW*) 
-    export PATH="$PATH:~/bin:/c/ProgramData/chocolatey/bin";;
+    export PATH="$PATH:/mingw64/bin:/mingw32/bin:~/bin:~/utils/choco/bin" #:/c/ProgramData/chocolatey/bin";;
+    export EDITOR='vim -u NONE'
+    export TERM=xterm-256color
+    ;;
 esac
 
-#if [ "$sysname" = "CYGWIN" ]; then
-  #if [ -f ~/.bashrc.cygwin ]; then
-    #. ~/.bashrc.cygwin
-  #fi
-#elif [ "$sysname" = "MSYS" ]; then
-  #if [ -f ~/.bashrc.msys ]; then
-    #. ~/.bashrc.msys
-  #fi
-#elif [[ $sysname == MINGW* ]]; then
-  #if [ -f ~/.bashrc.mingw ]; then
-    #. ~/.bashrc.mingw
-  #fi
-#elif [ "$sysname" = "AIX" ]; then
-  #if [ -f ~/.bashrc.aix ]; then
-    #. ~/.bashrc.aix
-  #fi
-#elif [ "$sysname" = "UBUNTU" ]; then
-  #if [ -f ~/.bashrc.ubuntu ]; then
-    #. ~/.bashrc.ubuntu
-  #fi
-#fi
-
-#
+################################################################################
 # common settings
 #
 # don't put duplicate lines or lines starting with space in the history.

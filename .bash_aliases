@@ -12,10 +12,11 @@ alias leech='aria2c --max-concurrent-downloads=10 --bt-require-crypto=true --low
 alias seed='aria2c --bt-require-crypto=true --check-integrity=false --bt-seed-unverified=true --disable-ipv6=true --seed-time=2880 --seed-ratio=1.0 --max-overall-upload-limit=10 --dir=. *.torrent '
 
 #start my own vim
-alias vim="/c/ProgramData/chocolatey/lib/vim-tux.portable/tools/vim74/vim.exe"
-alias gvim="/c/ProgramData/chocolatey/lib/vim-tux.portable/tools/vim74/gvim.exe"
+#alias vim="/c/ProgramData/chocolatey/lib/vim-tux.portable/tools/vim74/vim.exe"
+#alias gvim="/c/ProgramData/chocolatey/lib/vim-tux.portable/tools/vim74/gvim.exe"
 alias vi="vim -u NONE"
 
+alias rclone="~/utils/sync-backup/rclone/rclone.exe --config ~/utils/sync-backup/rclone/.rclone.conf"
 
 alias setvi="set -o vi"
 alias setnorm="set -o emacs"
